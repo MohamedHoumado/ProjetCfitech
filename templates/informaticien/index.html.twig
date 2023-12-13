@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Informaticien index{% endblock %}
+
+{% block body %}
+    <h1>Informaticien index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_informaticien</th>
+                <th>Prenom_informaticien</th>
+                <th>Date_naissance</th>
+                <th>Adresse_informaticien</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Experience_annee</th>
+                <th>Niveau_etude</th>
+                <th>Certification</th>
+                <th>Date_embauche</th>
+                <th>Statut</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for informaticien in informaticiens %}
+            <tr>
+                <td>{{ informaticien.id }}</td>
+                <td>{{ informaticien.nomInformaticien }}</td>
+                <td>{{ informaticien.prenomInformaticien }}</td>
+                <td>{{ informaticien.dateNaissance ? informaticien.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ informaticien.adresseInformaticien }}</td>
+                <td>{{ informaticien.email }}</td>
+                <td>{{ informaticien.telephone }}</td>
+                <td>{{ informaticien.experienceAnnee }}</td>
+                <td>{{ informaticien.niveauEtude }}</td>
+                <td>{{ informaticien.certification }}</td>
+                <td>{{ informaticien.dateEmbauche ? informaticien.dateEmbauche|date('Y-m-d') : '' }}</td>
+                <td>{{ informaticien.statut ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_informaticien_show', {'id': informaticien.id}) }}">show</a>
+                    <a href="{{ path('app_informaticien_edit', {'id': informaticien.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_informaticien_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Informaticien{% endblock %}
+
+{% block body %}
+    <h1>Edit Informaticien</h1>
+
+    {{ include('informaticien/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_informaticien_index') }}">back to list</a>
+
+    {{ include('informaticien/_delete_form.html.twig') }}
+{% endblock %}

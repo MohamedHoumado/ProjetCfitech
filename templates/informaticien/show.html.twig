@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Informaticien{% endblock %}
+
+{% block body %}
+    <h1>Informaticien</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ informaticien.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom_informaticien</th>
+                <td>{{ informaticien.nomInformaticien }}</td>
+            </tr>
+            <tr>
+                <th>Prenom_informaticien</th>
+                <td>{{ informaticien.prenomInformaticien }}</td>
+            </tr>
+            <tr>
+                <th>Date_naissance</th>
+                <td>{{ informaticien.dateNaissance ? informaticien.dateNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Adresse_informaticien</th>
+                <td>{{ informaticien.adresseInformaticien }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ informaticien.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ informaticien.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Experience_annee</th>
+                <td>{{ informaticien.experienceAnnee }}</td>
+            </tr>
+            <tr>
+                <th>Niveau_etude</th>
+                <td>{{ informaticien.niveauEtude }}</td>
+            </tr>
+            <tr>
+                <th>Certification</th>
+                <td>{{ informaticien.certification }}</td>
+            </tr>
+            <tr>
+                <th>Date_embauche</th>
+                <td>{{ informaticien.dateEmbauche ? informaticien.dateEmbauche|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ informaticien.statut ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_informaticien_index') }}">back to list</a>
+
+    <a href="{{ path('app_informaticien_edit', {'id': informaticien.id}) }}">edit</a>
+
+    {{ include('informaticien/_delete_form.html.twig') }}
+{% endblock %}
