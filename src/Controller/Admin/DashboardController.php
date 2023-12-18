@@ -12,6 +12,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use App\Entity\Formation;
 use App\Entity\Informaticien;
 use App\Entity\Stagiaire;
+use App\Entity\User;
+use App\Entity\Service;
 
 
 
@@ -49,8 +51,10 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Formations', 'fa fa-file-text', Formation::class);
+        yield MenuItem::linkToCrud('Services', 'fa fa-computer', Service::class);
         yield MenuItem::linkToCrud('Informaticiens', 'fa fa-computer', Informaticien::class);
         yield MenuItem::linkToCrud('Stagiaires', 'fa fa-user', Stagiaire::class);
+        yield MenuItem::linkToCrud('Users', 'fa fa-user', User::class);
         yield MenuItem::linkToLogout('Logout', 'fa fa-exit');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }

@@ -46,12 +46,16 @@ class Formation
     #[ORM\OneToMany(mappedBy: 'formation', targetEntity: Stagiaire::class)]
     private Collection $stagiaires;
 
+    #[ORM\ManyToOne(inversedBy: 'formations')]
+    private ?Formateur $formateur = null;
+
     public function __construct()
     {
         $this->stagiaires = new ArrayCollection();
     }
-
-
+    public function __toString(){
+        return $this->intitule_formation;
+    }
 
     public function getId(): ?int
     {
@@ -180,6 +184,18 @@ class Formation
                 $stagiaire->setFormation(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFormateur(): ?Formateur
+    {
+        return $this->formateur;
+    }
+
+    public function setFormateur(?Formateur $formateur): static
+    {
+        $this->formateur = $formateur;
 
         return $this;
     }

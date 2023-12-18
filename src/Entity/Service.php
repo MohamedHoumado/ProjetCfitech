@@ -10,7 +10,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ServiceRepository::class)]
-#[ORM\Table(name:"services")]
+#[ORM\Table(name: "services")]
 #[ApiResource]
 class Service
 {
@@ -42,8 +42,13 @@ class Service
         $this->informaticiens = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->nom_service;
+    }
 
-   
+
+
 
 
 
@@ -142,7 +147,7 @@ class Service
         return $this;
     }
 
- 
 
-   
+
+
 }
