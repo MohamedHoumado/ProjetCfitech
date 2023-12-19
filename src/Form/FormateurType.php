@@ -6,6 +6,9 @@ use App\Entity\Formateur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
+
+
 
 class FormateurType extends AbstractType
 {
@@ -14,8 +17,15 @@ class FormateurType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('image')
             ->add('description')
+            ->add('imageFile', VichFileType::class,[
+                'required' => false,
+                'allow_delete' => true,
+                'delete_label' => 'Delete Pin image',
+                'download_uri' => true,
+                
+                'asset_helper' => true,
+            ]);
         ;
     }
 

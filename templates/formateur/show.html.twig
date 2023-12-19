@@ -21,7 +21,7 @@
             </tr>
             <tr>
                 <th>Image</th>
-                <td>{{ formateur.image }}</td>
+                <td><img style="max-width: 250px;" src={{ vich_uploader_asset(formateur, 'imageFile') }}></td>
             </tr>
             <tr>
                 <th>Description</th>
